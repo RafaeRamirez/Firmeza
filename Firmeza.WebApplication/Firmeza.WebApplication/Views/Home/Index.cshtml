@@ -1,8 +1,6 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+﻿@{ ViewData["Title"] = "Home"; }
+<h1>Welcome to Firmeza</h1>
+<ul>
+  <li><a asp-controller="Products" asp-action="Index">Products</a></li>
+  <li><a asp-controller="Chat" asp-action="Index">Firmeza Assistant (AI)</a></li>
+</ul>

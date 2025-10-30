@@ -1,6 +1,3 @@
+using Firmeza.WebApplication.Interfaces;
 namespace Firmeza.WebApplication.Utils;
-
-public class DateTimeProvider
-{
-    
-}
+public sealed class DateTimeProvider : IDateTimeProvider { public DateTime UtcNow => DateTime.UtcNow; }

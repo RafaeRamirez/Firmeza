@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+@model List<Firmeza.WebApplication.Models.Product>
+@{ ViewData["Title"] = "Products"; }
+<h2>Products</h2>
 
-</body>
-</html>
+<form method="get" asp-action="Index" asp-controller="Products">
+  <input name="q" placeholder="Search by name" />
+  <button type="submit">Search</button>
+</form>
+
+<table>
+  <thead><tr><th>Name</th><th>Price</th></tr></thead>
+  <tbody>
+  @foreach (var p in Model)
+  { <tr><td>@p.Name</td><td>@p.UnitPrice</td></tr> }
+  </tbody>
+</table>
+<a asp-action="Create" asp-controller="Products">Create new</a>

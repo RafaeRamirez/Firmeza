@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+@{ ViewData["Title"] = "Create Product"; }
+<h2>Create Product</h2>
 
-</body>
-</html>
+<div asp-validation-summary="All" class="text-danger"></div>
+<form method="post" asp-action="Create" asp-controller="Products">
+  <div>
+    <label for="name">Name</label>
+    <input id="name" name="name" />
+  </div>
+  <div>
+    <label for="unitPrice">Unit Price</label>
+    <input id="unitPrice" name="unitPrice" type="number" step="0.01" />
+  </div>
+  <button type="submit">Save</button>
+  <a asp-action="Index" asp-controller="Products">Cancel</a>
+</form>
