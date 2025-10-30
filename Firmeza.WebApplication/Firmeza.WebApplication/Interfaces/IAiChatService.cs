@@ -1,6 +1,2 @@
 namespace Firmeza.WebApplication.Interfaces;
-
-public class IAiChatService
-{
-    
-}
+public interface IAiChatService { Task<string> AskAsync(string userMessage, CancellationToken ct = default); }

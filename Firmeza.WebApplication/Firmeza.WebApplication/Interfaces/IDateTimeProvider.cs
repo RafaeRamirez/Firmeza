@@ -1,6 +1,2 @@
 namespace Firmeza.WebApplication.Interfaces;
-
-public class IDateTimeProvider
-{
-    
-}
+public interface IDateTimeProvider { DateTime UtcNow { get; } }

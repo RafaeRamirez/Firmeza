@@ -1,6 +1,2 @@
 namespace Firmeza.WebApplication.Interfaces;
-
-public class IStringSanitizer
-{
-    
-}
+public interface IStringSanitizer { string NormalizeForSearch(string? input); }
