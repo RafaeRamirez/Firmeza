@@ -1,10 +1,8 @@
 using Firmeza.WebApplication.Services;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Firmeza.WebApplication.Controllers;
 
-[Authorize(Roles = "Admin")]
 public class ProductsController : Controller
 {
     private readonly ProductService _service;
@@ -12,21 +10,15 @@ public class ProductsController : Controller
 
     [HttpGet]
     public async Task<IActionResult> Index(string? q)
-        => View(await _service.SearchAsync(q));
-
-    [HttpGet]
-    public IActionResult Create() => View();
+    {
+        var items = await _service.ListAsync(q);
+        return View(items); // Asegúrate de tener Views/Products/Index.cshtml
+    }
 
     [HttpPost]
-    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(string name, decimal unitPrice)
     {
-        var result = await _service.CreateAsync(name, unitPrice);
-        if (!result.Success)
-        {
-            ModelState.AddModelError(string.Empty, result.ErrorMessage!);
-            return View();
-        }
+        await _service.CreateAsync(name, unitPrice);
         return RedirectToAction(nameof(Index));
     }
 }

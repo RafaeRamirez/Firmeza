@@ -1,11 +1,13 @@
-using Firmeza.WebApplication.Models;
+// Data/AppDbContext.cs
 using Microsoft.EntityFrameworkCore;
+using Firmeza.WebApplication.Models;
 
-namespace  Firmeza.WebApplication.Data;
+namespace Firmeza.WebApplication.Data;
 
-    public class AppDbContext : DbContext
+public class AppDbContext : DbContext
 {
     public DbSet<Product> Products => Set<Product>();
+
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
     protected override void OnModelCreating(ModelBuilder b)
